@@ -40,7 +40,10 @@ defmodule PhoenixCrud.Mixfile do
       {:phoenix_html, "~> 2.10"},
       {:phoenix_live_reload, "~> 1.0", only: :dev},
       {:gettext, "~> 0.11"},
-      {:cowboy, "~> 1.0"}
+      {:cowboy, "~> 1.0"},
+      {:ueberauth, "~> 0.4"}, # add this line
+      {:ueberauth_google, "~> 0.5"}, # add this line
+      {:ex_machina, "~> 2.0"}
     ]
   end
 

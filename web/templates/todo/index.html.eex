@@ -13,7 +13,7 @@
   <tbody>
 <%= for todo <- @todos do %>
     <tr>
-      <td><%= todo.title %></td>
+      <td><%= todo.id %></td>
       <td><%= todo.description %></td>
       <td><%= todo.completed %></td>
 

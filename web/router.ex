@@ -7,6 +7,7 @@ defmodule PhoenixCrud.Router do
     plug :fetch_flash
     plug :protect_from_forgery
     plug :put_secure_browser_headers
+    plug PhoenixCrud.Plugs.SetUser  
   end
 
   pipeline :api do
@@ -17,8 +18,17 @@ defmodule PhoenixCrud.Router do
     pipe_through :browser # Use the default browser stack
 
     get "/", PageController, :index
+    resources "/users", UserController
     resources "/todos", TodoController
 
+  end
+
+   scope "/auth", PhoenixCrud do
+    pipe_through :browser
+    
+    get "/:provider", AuthController, :request
+    get "/:provider/callback", AuthController, :new 
+    get "/signout", AuthController, :delete
   end
 
 
